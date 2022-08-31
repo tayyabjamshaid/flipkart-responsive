@@ -1,0 +1,239 @@
+Grid Properties(SHORT NOTES)
+                                            CONTAINER/PARENT PROPERIES
+1-Display 
+display:grid
+2-grid-row-gap
+     2 rows k andr ka gap
+3-grid-column-gap
+     2 columns k andr ka gap
+4-GRID CONTAINER PROPERTIES
+a)grid-template-rows
+It is used to specify the height of each row
+b)grid-template-columns
+It is used to specify the width of each row
+c)justify-content
+It is used to align all the container horizontally like in center,space-around etc
+d)align-content
+It is used to align all the container vertically like in center,space-around etc
+
+AB TAK KI PROPERTIES KI EXAMPLE
+.container{
+    background-color: aquamarine;
+    border: 1px solid black;
+    display: grid;
+    grid-row-gap: 15px;
+    grid-column-gap: 15px;
+    grid-template-columns: 220px 220px; 
+//  comment start
+grid-template-column property will decide k ek row me kitni items ny
+ana ha,like is property k agay 2 values likhi ha,is ka matlab ek row me 
+2 items aiy gi 
+//  comment end
+    grid-template-rows:220px 220px ;
+    justify-content:center;
+    align-content:center
+    
+}
+.main{
+    background-color: pink;
+        border: 1px solid red;
+}
+<body>
+    <div class="container">
+        <div class="main">1</div>
+        <div class="main">2</div>
+        <div class="main">3</div>
+        <div class="main">4</div>
+        <div class="main">5</div>
+    </div>
+</body>
+
+--------------------------
+BRIEF EXPLANATION OF grid-template-columns & grid-template-rows
+===>grid-template-columns
+let suppose,we have 5 rows/items in container and we have 3 different pixels value in its styling property
+It will do 2 works
+1-Agr 3 values di ha,tu ye ek row me 3 items ki distribution kry ga
+2-Har given value k mutabiq har item ki width brthi jai gi
+For example (for 5 items)
+grid-template-column:120px 220px 330px;
+ ------------ ----------------------------- -----------------------------------
+   1st item          2nd item                 3rd Item
+ ------------ ----------------------------- 
+   4th item          5th item        
+
+====> grid-template-rows
+Suppose,we give 3 pixels values in it,Now first pixel value will increase height of first row items,second pixel value will increase height of second rows items
+ grid-template-rows:120px 220px 330px;
+
+1st row:
+ ------------ ---------- -------------
+ ------------ ---------- -------------
+ ------------ ---------- -------------
+
+2nd row:
+ ------------ ---------- -------------
+ ------------ ---------- -------------
+ ------------ ---------- -------------
+ ------------ ---------- -------------
+ ------------ ---------- -------------
+ ------------ ---------- -------------
+
+3rd Row
+ ------------ ---------- -------------
+ ------------ ---------- -------------
+ ------------ ---------- -------------
+ ------------ ---------- -------------
+ ------------ ---------- -------------
+ ------------ ---------- -------------
+ ------------ ---------- -------------
+ ------------ ---------- -------------
+ ------------ ---------- -------------
+ ------------ ---------- -------------
+ ------------ ---------- -------------
+ ------------ ---------- -------------
+end explANATION
+---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+                                           CHILD PROPERTIES
+1-grid-column
+Let hamaray pas 3 columns ha,by using this property,hum 1 column ko dosary column(jaha pr end hu rha ha) waha tak milana chahty ha,then use this.
+
+
+example:
+  <div class="container">
+        <div class="main" id="sas">1</div>
+        <div class="main" id="sass">2</div>
+        <div class="main" id="sasss">3</div>
+        <div class="main">4</div>
+        <div class="main">5</div>
+    </div>
+.container{
+    background-color: aquamarine;
+    border: 1px solid black;
+    display: grid;
+    height: 88vh;
+    grid-row-gap: 15px;
+    grid-column-gap: 15px;
+    grid-template-columns: 620px 884px ;     //imp:dosary column ki width
+    grid-template-rows:44px 187px;
+    
+    
+}
+.main{
+    background-color: pink;
+        border: 1px solid red;
+}
+#sas{
+    grid-column:1/3 ;             //here  
+
+            note :  here 1 is defined that which column number we have to start and 3 define that which column number should be end
+}
+
+2-grid-row
+1 row ko dosari row sy milana chahty ha,then use this
+.container {
+    background-color: aquamarine;
+    border: 1px solid black;
+    display: grid;
+    height: 88vh;
+    grid-row-gap: 15px;
+    grid-column-gap: 15px;
+    grid-template-columns: 820px 884px; 
+    grid-template-rows: 14px 187px 300px;
+
+
+}
+
+.main {
+    background-color: pink;
+    border: 1px solid red;
+}
+
+#sas {
+    /* grid-column: 1/3; */
+    grid-row: 1/3;    phli row sy start kro aur 3rd row tak jao
+          or
+    grid-row:2/4      dosari row sy start kro aur 4th row tak jao
+}
+
+3-grid span property
+Is me hum phly ye btaiy gy k knsi row sy start krna ha aur second me ye btana ha k ye hamary kitni items/rows ki jagah ly
+Example
+.container {
+    background-color: aquamarine;
+    border: 1px solid black;
+    display: grid;
+    height: 88vh;
+    grid-row-gap: 15px;
+    grid-column-gap: 15px;
+    grid-template-columns: 820px 484px; 
+    grid-template-rows: 14px 187px 300px;
+
+
+}
+
+.main {
+    background-color: pink;
+    border: 1px solid red;
+}
+
+#sas {
+    /* grid-column: 1/3; */
+    grid-row:2/span 3 ;          2nd row sy start kro aur agli 3 items  k mutabiq height b brha du
+}
+
+SEE THE DIFFERNCE JAB AP KHUD KRY GY IN GRID-SPAN AND SIMPLE GRID-ROW
+
+--------------------
+Example 1:
+Respnsive Navbar,content,footer
+
+*{
+    padding: 0;
+    margin: 0;
+}
+ul{
+    display: inline-grid;
+    grid-template-columns: auto auto;
+   
+}
+header{
+    background-color: #333;
+        color: wheat;
+}
+li{
+    margin: 23px;
+}
+ul li{
+    list-style: none;
+}
+footer {
+    background-color: #333;
+    color: #EEE;
+    padding: 20px;
+    left: 0;
+    width: 100%;
+    bottom: 0;
+    position: fixed;
+    text-align: center;
+}
+<body>
+    <header>
+        <nav>
+            <ul>
+                <li>
+                    Home
+                </li>
+                <li>
+                    About
+                </li>
+            </ul>
+        </nav>
+    </header>
+    <div class="container">
+        lorem300
+    </div>
+    <footer>
+        Copyright
+    </footer>
+------------------------------------------------------------

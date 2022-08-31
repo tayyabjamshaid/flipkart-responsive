@@ -1,0 +1,17 @@
+@import url('https://fonts.googleapis.com/css2?family=Playfair+Display:wght@600&display=swap');
+
+.all-center{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+.btn{
+    padding: 3px 7px;
+        border-radius: 6px;
+        background-color: #2874f0;
+        border: 2px solid white;
+        cursor: pointer;
+            font-family: 'Playfair Display', serif;
+            font-weight: 900;
+            color: white;
+}
